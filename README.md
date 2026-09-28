@@ -16,8 +16,13 @@ Assistant on port 1200.
   port (`-p 1200:1200` / `ports: ["1200:1200"]`) and enter the inverter's IP
   address during setup, so the discovery message is sent to it directly. This
   mode is untested on real hardware. Host networking is the reliable option.
-* Only **one program at a time** can use port 1200 on a host. Stop
-  `samil mqtt`, SolarPower Browser, etc. on the same machine first.
+* The inverter only talks to **one program at a time**, and only one program
+  per host can listen on port 1200. **Stop the `mhvis/samil` container**
+  (`samil mqtt`, SolarPower Browser, etc.) before setting this up, wherever it
+  runs on your network.
+* Logs that say something like `Connected to inverter ... ('192.168.1.221', 4100)`
+  show the inverter's *outgoing* source port. You never need to configure it:
+  the inverter always connects to port 1200 on the Home Assistant host.
 
 ## Install
 

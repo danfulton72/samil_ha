@@ -15,9 +15,9 @@
       }
     },
     "error": {
-      "not_found": "No inverter connected back within ~20 seconds. Check that it is powered on, on the same network, and that Home Assistant uses host networking (or that TCP port 1200 is reachable).",
+      "not_found": "No inverter connected back within ~20 seconds. The inverter only talks to one program at a time: stop any other tool that is connected to it (e.g. the mhvis/samil Docker container, 'samil mqtt' or SolarPower Browser) and try again. Also check that it is powered on (daylight), on the same network, and that Home Assistant uses host networking (or that TCP port 1200 is published).",
       "cannot_connect": "The inverter connected but did not respond correctly. Try again.",
-      "port_in_use": "TCP port 1200 is already in use, probably by another program talking to the inverter (e.g. 'samil mqtt' or SolarPower Browser). Stop it and try again."
+      "port_in_use": "TCP port 1200 is already in use on this host, probably by another program talking to the inverter (e.g. the mhvis/samil Docker container, 'samil mqtt' or SolarPower Browser). Stop it and try again."
     },
     "abort": {
       "single_instance_allowed": "Only one Samil Power entry is supported.",
