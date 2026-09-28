@@ -1,0 +1,36 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Samil Power inverter",
+        "description": "Home Assistant listens on TCP port 1200 and asks the inverter to connect to it. The inverter must be powered on (daylight) during setup. Leave both fields empty to discover the inverter by broadcast.",
+        "data": {
+          "inverter_host": "Inverter IP address (optional)",
+          "interface": "Local interface IP to bind to (optional)"
+        },
+        "data_description": {
+          "inverter_host": "Set this if broadcast discovery doesn't work, e.g. when Home Assistant runs in a Docker container without host networking.",
+          "interface": "Only needed if the Home Assistant host has several network interfaces."
+        }
+      }
+    },
+    "error": {
+      "not_found": "No inverter connected back within ~20 seconds. Check that it is powered on, on the same network, and that Home Assistant uses host networking (or that TCP port 1200 is reachable).",
+      "cannot_connect": "The inverter connected but did not respond correctly. Try again.",
+      "port_in_use": "TCP port 1200 is already in use, probably by another program talking to the inverter (e.g. 'samil mqtt' or SolarPower Browser). Stop it and try again."
+    },
+    "abort": {
+      "single_instance_allowed": "Only one Samil Power entry is supported.",
+      "already_configured": "This inverter is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "scan_interval": "Polling interval (seconds)"
+        }
+      }
+    }
+  }
+}
